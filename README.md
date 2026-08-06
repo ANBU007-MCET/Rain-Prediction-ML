@@ -1,47 +1,50 @@
 # 🌧️ Rain Prediction System using Machine Learning
 
-A Machine Learning-based Rain Prediction System developed using **Python**, **Flask**, and **Logistic Regression**. This web application predicts whether it will rain based on seven weather parameters entered by the user.
+A Machine Learning-based Rain Prediction System developed using **Python**, **Flask**, and **Logistic Regression**. This web application predicts whether it will rain based on seven important weather parameters.
 
-🔗 **Live Demo:** https://rain-prediction-ml-1.onrender.com
+## 🌐 Live Demo
 
----
-
-## 📌 Project Overview
-
-This project uses a Logistic Regression model trained on historical weather data to predict the possibility of rainfall. Users can enter weather conditions through a simple web interface and receive an instant prediction.
+🔗 https://rain-prediction-ml-1.onrender.com
 
 ---
 
-## ✨ Features
+# 📌 Project Overview
 
-- 🌧️ Predicts whether it will rain or not
-- 🤖 Machine Learning model using Logistic Regression
-- 🖥️ Simple and user-friendly Flask web interface
-- 📊 Trained using 7 important weather features
+This project predicts the possibility of rainfall using a Machine Learning model trained on historical weather data. Users can enter weather conditions through an interactive web interface and receive an instant prediction.
+
+---
+
+# ✨ Features
+
+- 🌧️ Rain prediction using Machine Learning
+- 🤖 Logistic Regression algorithm
+- 📊 Trained with 7 weather features
+- 🖥️ User-friendly Flask web application
 - ⚡ Instant prediction results
-- 🌐 Deployed on Render
-- 📱 Responsive and clean UI
+- 📱 Responsive interface
+- ☁️ Deployed on Render
 
 ---
 
-## 🛠️ Technologies Used
+# 🛠️ Technologies Used
 
 - Python
 - Flask
-- Scikit-learn
+- HTML5
+- CSS3
 - Pandas
 - NumPy
-- HTML
-- CSS
+- Scikit-learn
 - Joblib
-- Git & GitHub
+- Git
+- GitHub
 - Render
 
 ---
 
-## 📂 Dataset
+# 📂 Dataset
 
-Dataset: Weather Rain Prediction Dataset (`archive.csv`)
+**Dataset:** archive.csv
 
 ### Features Used
 
@@ -53,71 +56,33 @@ Dataset: Weather Rain Prediction Dataset (`archive.csv`)
 - Pressure at 3 PM (hPa)
 - Sunshine (hours)
 
-Target:
+### Target
 
 - Rain Tomorrow (Yes / No)
 
 ---
 
-## 📈 Machine Learning Model
+# 🤖 Machine Learning Model
 
-Algorithm:
+**Algorithm:** Logistic Regression
 
-- Logistic Regression
-
-Model Accuracy:
-
-**79%**
+**Model Accuracy:** **79%**
 
 ---
 
-## 🚀 Installation
+# 📷 Application Screenshots
 
-Clone the repository
+## 🏠 Home Page
 
-```bash
-git clone https://github.com/ANBU007-MCET/Rain-Prediction-ML.git
-```
+![Home Page](screenshots/home.png.png)
 
-Go to project folder
+## 🌧️ Prediction Result
 
-```bash
-cd Rain-Prediction-ML
-```
-
-Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-Run the application
-
-```bash
-python app.py
-```
-
-Open your browser
-
-```
-http://127.0.0.1:5000
-```
+![Prediction Result](screenshots/prediction.png.png)
 
 ---
 
-## 📷 Application Screenshots
-
-### Home Page
-
-![Home Page](screenshots/home.png)
-
-### Prediction Result
-
-![Prediction Result](screenshots/prediction.png)
-
----
-
-## 🧪 Example Test Input
+# 🧪 Example Test Input
 
 | Feature | Value |
 |----------|------:|
@@ -129,7 +94,7 @@ http://127.0.0.1:5000
 | Pressure (3 PM) | 1008.4 |
 | Sunshine | 2.8 |
 
-Expected Prediction:
+### Prediction
 
 ```
 Rain Tomorrow
@@ -137,7 +102,41 @@ Rain Tomorrow
 
 ---
 
-## 📁 Project Structure
+# 🚀 Installation
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/ANBU007-MCET/Rain-Prediction-ML.git
+```
+
+### Move into the Project Folder
+
+```bash
+cd Rain-Prediction-ML
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run the Application
+
+```bash
+python app.py
+```
+
+### Open in Browser
+
+```
+http://127.0.0.1:5000
+```
+
+---
+
+# 📁 Project Structure
 
 ```
 Rain-Prediction-ML
@@ -149,35 +148,35 @@ Rain-Prediction-ML
 ├── Model_Training.ipynb
 ├── README.md
 │
-├── templates
+├── templates/
 │   └── index.html
 │
-├── static
+├── static/
 │   └── style.css
 │
-└── screenshots
-    ├── home.png
-    └── prediction.png
+└── screenshots/
+    ├── home.png.png
+    └── prediction.png.png
 ```
 
 ---
 
-## 🎯 Future Improvements
+# 🎯 Future Enhancements
 
 - Improve prediction accuracy
 - Add weather API integration
-- Display prediction probability
-- Include rainfall visualization charts
-- Deploy with Docker
-- Add user authentication
+- Show prediction probability
+- Display weather charts
+- Support multiple cities
+- Mobile-friendly enhancements
 
 ---
 
-## 👨‍💻 Developer
+# 👨‍💻 Developer
 
 **Anbu Selvan K**
 
-Bachelor of Engineering (Artificial Intelligence & Data Science)
+**B.E. Artificial Intelligence & Data Science**
 
 Dr. Mahalingam College of Engineering and Technology
 
@@ -186,18 +185,18 @@ https://github.com/ANBU007-MCET
 
 ---
 
-## 🌐 Live Demo
+# 🌐 Live Application
 
 https://rain-prediction-ml-1.onrender.com
 
 ---
 
-## ⭐ Support
+# ⭐ Support
 
-If you found this project useful, please consider giving it a ⭐ on GitHub.
+If you found this project helpful, please give it a ⭐ on GitHub.
 
 ---
 
-## 📄 License
+# 📄 License
 
 This project is developed for educational and academic purposes.
