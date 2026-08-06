@@ -9,57 +9,62 @@
 </head>
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <h1>🌧 Rain Prediction</h1>
+    <h1>🌧 Rain Prediction</h1>
 
-        <form action="/predict" method="POST">
+    <form action="/predict" method="POST">
 
-            <label for="MinTemp">Minimum Temperature (°C)</label>
-            <input
-                type="number"
-                id="MinTemp"
-                name="MinTemp"
-                step="any"
-                placeholder="Enter minimum temperature"
-                required
-            >
+        <label for="MinTemp">Minimum Temperature (°C)</label>
+        <input
+            type="number"
+            id="MinTemp"
+            name="MinTemp"
+            step="any"
+            placeholder="Enter Minimum Temperature"
+            value="{{ min_temp if min_temp is defined else '' }}"
+            required
+        >
 
-            <label for="MaxTemp">Maximum Temperature (°C)</label>
-            <input
-                type="number"
-                id="MaxTemp"
-                name="MaxTemp"
-                step="any"
-                placeholder="Enter maximum temperature"
-                required
-            >
+        <label for="MaxTemp">Maximum Temperature (°C)</label>
+        <input
+            type="number"
+            id="MaxTemp"
+            name="MaxTemp"
+            step="any"
+            placeholder="Enter Maximum Temperature"
+            value="{{ max_temp if max_temp is defined else '' }}"
+            required
+        >
 
-            <label for="Rainfall">Rainfall (mm)</label>
-            <input
-                type="number"
-                id="Rainfall"
-                name="Rainfall"
-                step="any"
-                placeholder="Enter rainfall"
-                required
-            >
+        <label for="Rainfall">Rainfall (mm)</label>
+        <input
+            type="number"
+            id="Rainfall"
+            name="Rainfall"
+            step="any"
+            placeholder="Enter Rainfall"
+            value="{{ rainfall if rainfall is defined else '' }}"
+            required
+        >
 
-            <button type="submit">Predict</button>
+        <button type="submit">Predict</button>
 
-        </form>
+    </form>
 
-        {% if prediction %}
-        <div class="result">
-            {% if prediction == "Rain Tomorrow" %}
-                ☔ <strong>{{ prediction }}</strong>
-            {% else %}
-                ☀️ <strong>{{ prediction }}</strong>
-            {% endif %}
-        </div>
+    {% if prediction %}
+    <div class="result">
+        {% if prediction == "Rain Tomorrow" %}
+            ☔ <strong>{{ prediction }}</strong>
+        {% elif prediction == "No Rain Tomorrow" %}
+            ☀️ <strong>{{ prediction }}</strong>
+        {% else %}
+            {{ prediction }}
         {% endif %}
-
     </div>
+    {% endif %}
+
+</div>
 
 </body>
 </html>
