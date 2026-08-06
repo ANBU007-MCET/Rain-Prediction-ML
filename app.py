@@ -4,38 +4,56 @@ import numpy as np
 
 app = Flask(__name__)
 
-# Load the trained model
+# Load trained model
 model = joblib.load("rain_prediction_model.pkl")
 
 
-@app.route('/')
+@app.route("/")
 def home():
     return render_template("index.html", prediction=None)
 
 
-@app.route('/predict', methods=['POST'])
+@app.route("/predict", methods=["POST"])
 def predict():
     try:
         # Get values from form
-        min_temp = float(request.form['MinTemp'])
-        max_temp = float(request.form['MaxTemp'])
-        rainfall = float(request.form['Rainfall'])
+        min_temp = float(request.form["MinTemp"])
+        max_temp = float(request.form["MaxTemp"])
+        rainfall = float(request.form["Rainfall"])
+        humidity3pm = float(request.form["Humidity3pm"])
+        pressure3pm = float(request.form["Pressure3pm"])
+        windspeed3pm = float(request.form["WindSpeed3pm"])
+        sunshine = float(request.form["Sunshine"])
 
-        # Create input for model
-        features = np.array([[min_temp, max_temp, rainfall]])
+        # Create feature array (same order as training)
+        features = np.array([[
+            min_temp,
+            max_temp,
+            rainfall,
+            humidity3pm,
+            pressure3pm,
+            windspeed3pm,
+            sunshine
+        ]])
 
         # Predict
         prediction = model.predict(features)[0]
 
-        # Convert prediction to text
         if prediction == 1:
-            result = "Rain Tomorrow"
+            result = "Rain Tomorrow 🌧️"
         else:
-            result = "No Rain Tomorrow"
+            result = "No Rain Tomorrow ☀️"
 
         return render_template(
             "index.html",
-            prediction=result
+            prediction=result,
+            min_temp=min_temp,
+            max_temp=max_temp,
+            rainfall=rainfall,
+            humidity3pm=humidity3pm,
+            pressure3pm=pressure3pm,
+            windspeed3pm=windspeed3pm,
+            sunshine=sunshine
         )
 
     except Exception as e:

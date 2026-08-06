@@ -3,65 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rain Prediction</title>
-
+    <title>Rain Prediction System</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
 
 <div class="container">
 
-    <h1>🌧 Rain Prediction</h1>
+    <h1>🌧 Rain Prediction System</h1>
+    <p class="subtitle">Machine Learning Based Weather Prediction</p>
 
     <form action="/predict" method="POST">
 
-        <label for="MinTemp">Minimum Temperature (°C)</label>
-        <input
-            type="number"
-            id="MinTemp"
-            name="MinTemp"
-            step="any"
-            placeholder="Enter Minimum Temperature"
-            value="{{ min_temp if min_temp is defined else '' }}"
-            required
-        >
+        <label>🌡 Minimum Temperature (°C)</label>
+        <input type="number" step="any" name="MinTemp"
+               value="{{ min_temp if min_temp is defined else '' }}"
+               placeholder="Enter Minimum Temperature" required>
 
-        <label for="MaxTemp">Maximum Temperature (°C)</label>
-        <input
-            type="number"
-            id="MaxTemp"
-            name="MaxTemp"
-            step="any"
-            placeholder="Enter Maximum Temperature"
-            value="{{ max_temp if max_temp is defined else '' }}"
-            required
-        >
+        <label>🌞 Maximum Temperature (°C)</label>
+        <input type="number" step="any" name="MaxTemp"
+               value="{{ max_temp if max_temp is defined else '' }}"
+               placeholder="Enter Maximum Temperature" required>
 
-        <label for="Rainfall">Rainfall (mm)</label>
-        <input
-            type="number"
-            id="Rainfall"
-            name="Rainfall"
-            step="any"
-            placeholder="Enter Rainfall"
-            value="{{ rainfall if rainfall is defined else '' }}"
-            required
-        >
+        <label>🌧 Rainfall (mm)</label>
+        <input type="number" step="any" name="Rainfall"
+               value="{{ rainfall if rainfall is defined else '' }}"
+               placeholder="Enter Rainfall" required>
 
-        <button type="submit">Predict</button>
+        <label>💧 Humidity at 3 PM (%)</label>
+        <input type="number" step="any" name="Humidity3pm"
+               value="{{ humidity3pm if humidity3pm is defined else '' }}"
+               placeholder="Enter Humidity" required>
+
+        <label>🌬 Wind Speed at 3 PM (km/h)</label>
+        <input type="number" step="any" name="WindSpeed3pm"
+               value="{{ windspeed3pm if windspeed3pm is defined else '' }}"
+               placeholder="Enter Wind Speed" required>
+
+        <label>🌡 Pressure at 3 PM (hPa)</label>
+        <input type="number" step="any" name="Pressure3pm"
+               value="{{ pressure3pm if pressure3pm is defined else '' }}"
+               placeholder="Enter Pressure" required>
+
+        <label>☀ Sunshine (Hours)</label>
+        <input type="number" step="any" name="Sunshine"
+               value="{{ sunshine if sunshine is defined else '' }}"
+               placeholder="Enter Sunshine Hours" required>
+
+        <button type="submit">🔍 Predict Rain</button>
 
     </form>
 
     {% if prediction %}
-    <div class="result">
-        {% if prediction == "Rain Tomorrow" %}
-            ☔ <strong>{{ prediction }}</strong>
-        {% elif prediction == "No Rain Tomorrow" %}
-            ☀️ <strong>{{ prediction }}</strong>
+        {% if "Rain Tomorrow" in prediction %}
+            <div class="result rain">
+                ☔ <strong>{{ prediction }}</strong>
+            </div>
+        {% elif "No Rain Tomorrow" in prediction %}
+            <div class="result norain">
+                ☀ <strong>{{ prediction }}</strong>
+            </div>
         {% else %}
-            {{ prediction }}
+            <div class="result">
+                {{ prediction }}
+            </div>
         {% endif %}
-    </div>
     {% endif %}
 
 </div>
