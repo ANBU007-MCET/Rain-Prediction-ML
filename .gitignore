@@ -8,4 +8,3 @@ wheels/
 
 # Virtual environments
 .venv/
-rain_prediction_model.pkl
